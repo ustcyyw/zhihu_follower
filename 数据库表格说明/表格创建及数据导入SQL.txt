@@ -1,0 +1,91 @@
+/*
+ 用户粉丝信息统计结果表
+ 
+ Navicat Premium Data Transfer
+
+ Source Server         : yyw
+ Source Server Type    : MySQL
+ Source Server Version : 80016
+ Source Host           : localhost:3306
+ Source Schema         : zhihu_followers
+
+ Target Server Type    : MySQL
+ Target Server Version : 80016
+ File Encoding         : 65001
+
+ Date: 23/02/2020 23:38:02
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for user_info
+-- ----------------------------
+DROP TABLE IF EXISTS `user_info`;
+CREATE TABLE `user_info`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增主键',
+  `username` varchar(255) CHARACTER SET gbk COLLATE gbk_chinese_ci NOT NULL COMMENT ' 用户名',
+  `page_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT '主页url',
+  `total_count` int(11) NOT NULL COMMENT '总粉丝数',
+  `fake_count` int(11) NOT NULL COMMENT '僵尸粉数',
+  `recording_time` timestamp(0) NOT NULL COMMENT '记录时间',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 12 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
+
+-- ----------------------------
+-- Records of user_info
+-- ----------------------------
+INSERT INTO `user_info` VALUES (1, 'wang-jun-zhao-22-42', 'https://www.zhihu.com/people/wang-jun-zhao-22-42', 155, 0, '2020-01-30 16:52:28');
+INSERT INTO `user_info` VALUES (5, 'mu-yi-81-66', 'https://www.zhihu.com/people/mu-yi-81-66', 4618, 3027, '2020-01-30 19:32:03');
+INSERT INTO `user_info` VALUES (6, 'an-qia-95-95', 'https://www.zhihu.com/people/an-qia-95-95', 1384, 118, '2020-01-30 19:36:10');
+INSERT INTO `user_info` VALUES (7, 'haoyu-52', 'https://www.zhihu.com/people/haoyu-52', 193, 122, '2020-01-30 20:17:06');
+INSERT INTO `user_info` VALUES (8, 'sonnetist', 'https://www.zhihu.com/people/sonnetist', 10509, 3907, '2020-01-30 21:11:33');
+INSERT INTO `user_info` VALUES (9, 'chi-ping-guo-chi-li', 'https://www.zhihu.com/people/chi-ping-guo-chi-li', 1195, 780, '2020-01-30 23:07:59');
+INSERT INTO `user_info` VALUES (10, 'huang-shu-70-40', 'https://www.zhihu.com/people/huang-shu-70-40', 24519, 13327, '2020-01-31 13:00:51');
+INSERT INTO `user_info` VALUES (11, 'huang-ze-sen', 'https://www.zhihu.com/people/huang-ze-sen', 4002, 2747, '2020-02-02 19:18:10');
+INSERT INTO `user_info` VALUES (12, 'neng-liang-a-wei-er', 'https://www.zhihu.com/people/neng-liang-a-wei-er', 5313, 4612, '2020-02-16 22:42:20');
+
+SET FOREIGN_KEY_CHECKS = 1;
+
+/*
+------------------------------------------------------------------------------------------------------------------------------一条分割线
+*/
+
+/*
+ 用户粉丝详细信息表：没有给出具体信息，这个只需要知道构造的SQL语句就好
+ Navicat Premium Data Transfer
+
+ Source Server         : yyw
+ Source Server Type    : MySQL
+ Source Server Version : 80016
+ Source Host           : localhost:3306
+ Source Schema         : zhihu_followers
+
+ Target Server Type    : MySQL
+ Target Server Version : 80016
+ File Encoding         : 65001
+
+ Date: 23/02/2020 23:37:49
+*/
+
+SET NAMES utf8mb4;
+SET FOREIGN_KEY_CHECKS = 0;
+
+-- ----------------------------
+-- Table structure for mu_yi_81_66_followers_info
+-- ----------------------------
+DROP TABLE IF EXISTS `mu_yi_81_66_followers_info`;
+CREATE TABLE `mu_yi_81_66_followers_info`  (
+  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT '自增主键',
+  `name` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT 'follower名字',
+  `page_url` varchar(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL COMMENT 'follower主页url',
+  `headline` varchar(500) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NULL DEFAULT NULL COMMENT '个人简介',
+  `gender` int(1) NOT NULL COMMENT '性别',
+  `follower_count` int(11) NOT NULL COMMENT '粉丝数',
+  `answer_count` int(11) NOT NULL COMMENT '回答数',
+  `articles_count` int(11) NOT NULL COMMENT '文章数',
+  `badge_count` int(11) NOT NULL COMMENT '徽章数',
+  `is_fake` int(1) NOT NULL COMMENT '是否为假粉 1为假粉',
+  PRIMARY KEY (`id`) USING BTREE
+) ENGINE = InnoDB AUTO_INCREMENT = 4618 CHARACTER SET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci ROW_FORMAT = Dynamic;
