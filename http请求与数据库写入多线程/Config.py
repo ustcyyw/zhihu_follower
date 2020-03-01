@@ -37,7 +37,7 @@ class Setting:
     """数据库相关配置：host user 及密码"""
     host = 'localhost'
     user = 'root'
-    password = 'yyw19950709'
+    password = ''
     db = 'zhihu_followers'
 
     """表格构造相关sql"""
